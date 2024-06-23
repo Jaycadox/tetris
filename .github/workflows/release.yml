@@ -21,6 +21,8 @@ jobs:
       uses: goto-bus-stop/setup-zig@v2
       with:
         version: 0.12.1
+    - name: Get deps
+      run: apt-get instal libgl
   
     - name: Build for Linux
       run: zig build --release=fast
