@@ -18,7 +18,9 @@ jobs:
       with:
         submodules: recursive
     - name: Get Zig
-      uses: goto-bus-stop/setup-zig@v2.2.0
+    - uses: goto-bus-stop/setup-zig@v2
+      with:
+        version: 0.12.1
   
     - name: Build for Linux
       run: zig build --release=fast
