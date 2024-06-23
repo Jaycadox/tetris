@@ -28,7 +28,7 @@ jobs:
     - name: Build for Windows
       run: zig build -Dtarget=x86_64-windows --release=fast
     - name: Rename file Windows
-    - run: mv zig-out/bin/game.exe zig-out/bin/tetris.exe
+      run: mv zig-out/bin/game.exe zig-out/bin/tetris.exe
     
     - name: Create Release
       id: create_release
