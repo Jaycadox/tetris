@@ -22,7 +22,7 @@ jobs:
       with:
         version: 0.12.1
     - name: Get deps
-      run: apt-get install libgl
+      run: sudo apt-get -y install libgl
   
     - name: Build for Linux
       run: zig build --release=fast
