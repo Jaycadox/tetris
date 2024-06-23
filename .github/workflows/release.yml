@@ -22,7 +22,7 @@ jobs:
       with:
         version: 0.12.1
     - name: Get deps
-      run: sudo apt-get -y install libgl
+      run: sudo apt-get -y install libgl1-mesa-glx
   
     - name: Build for Linux
       run: zig build --release=fast
