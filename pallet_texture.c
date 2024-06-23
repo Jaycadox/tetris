@@ -11,7 +11,6 @@ typedef struct pixel {
 	uint8_t b;
 } pixel;
 
-
 pallet_texture pallet_texture_new(Image img) {
 	// This is so we can assume that one pixel is three bytes when calculating size of image
 	assert(img.format == PIXELFORMAT_UNCOMPRESSED_R8G8B8);
@@ -39,16 +38,19 @@ pallet_texture pallet_texture_new(Image img) {
 
 
 void pallet_texture_apply_pallet(pallet_texture* texture, uint32_t colour) {
+	// Extract rgb components of 32bit colour
 	const uint8_t r = colour >> 16;
 	const uint8_t g = (colour >> 8) & 0xff;
 	const uint8_t b = colour & 0xff;
-	pixel p = { .r = r, .g = g, .b = b};
 
+	// Write specified colour values to pixels whose index'th bit is set in the mask
+	pixel p = { .r = r, .g = g, .b = b};
 	for (uint8_t j = 0; j < 64; ++j) {
 		if ((texture->mask >> j) & 1) {
 			((pixel*)texture->image.data)[j] = p;
 		}
 	}
+
 	UnloadTexture(texture->texture);
 	texture->texture = LoadTextureFromImage(texture->image);
 }

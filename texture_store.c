@@ -1,5 +1,7 @@
 #include "texture_store.h"
 
+/* --- Load raw bytes of texture BMPs --- */
+
 static unsigned char tetris_base[]  = {
 #include "tetris_base.bmp.h"
 };
@@ -10,7 +12,6 @@ static unsigned char tetris_filled_base[]  = {
 };
 
 #define ARRAYSIZE(x) sizeof(x) / sizeof(x[0])
-
 
 texture_store texture_store_default() {
 	Image img = LoadImageFromMemory(".bmp", tetris_base, ARRAYSIZE(tetris_base));
