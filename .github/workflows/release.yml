@@ -22,7 +22,8 @@ jobs:
       with:
         version: 0.12.1
     - name: Get deps
-      run: sudo apt-get -y install libgl-dev libx11-dev libxcursor-dev libxrandr-dev
+      run: sudo apt-get -y install libgl-dev libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev
+
   
     - name: Build for Linux
       run: zig build --release=fast
