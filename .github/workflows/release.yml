@@ -1,0 +1,41 @@
+name: Build and Release
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+    - name: Get Zig
+      uses: goto-bus-stop/setup-zig@v2.2.0
+  
+    - name: Build for Linux
+      run: zig build --release=fast
+    - name: Rename file
+      run: mv zig-out/bin/game zig-out/bin/tetris
+    - name: Strip file
+      run: strip zig-out/bin/tetris
+        
+    - name: Build for Windows
+      run: zig build -Dtarget=x86_64-windows --release=fast
+    - name: Rename file Windows
+    - run: mv zig-out/bin/game.exe zig-out/bin/tetris.exe
+    
+    - name: Create Release
+      id: create_release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: autobuild-${{ github.run_number }}
+        body: Automatically generated build
+        files: |
+          ./zig-out/bin/tetris.exe
+          ./zig-out/bin/tetris
