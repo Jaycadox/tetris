@@ -22,7 +22,7 @@ jobs:
       with:
         version: 0.12.1
     - name: Get deps
-      run: sudo apt-get -y install libgl-dev libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev
+      run: sudo apt-get -y install libgl-dev libx11-dev libxcursor-dev libxrandr-dev libxinerama-dev xorg-dev libxinput-dev
 
   
     - name: Build for Linux
