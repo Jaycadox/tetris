@@ -1,5 +1,6 @@
 #include <time.h>
 #include <string.h>
+#define SUPPORT_FILEFORMAT_BMP      1
 #define SUPPORT_FILEFORMAT_TGA
 #include <raylib.h>
 
