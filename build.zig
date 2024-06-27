@@ -32,7 +32,7 @@ pub fn build(b: *std.Build) void {
             "-Wno-gnu-binary-literal",
         }
     });
-    game.addIncludePath(.{.path = "raylib/src"});
+    game.addIncludePath(b.path("raylib/src"));
     game.linkLibrary(r);
     b.installArtifact(game);
 }
