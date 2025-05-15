@@ -23,7 +23,19 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
+
 # Add the executable target
 add_executable(Tetris main.c board.c pallet_texture.c tetromino.c texture_store.c score.c)
+
+if (WIN32)
+    set_target_properties(Tetris PROPERTIES
+        WIN32_EXECUTABLE TRUE
+    )
+endif()
+
+# Add libm if on UNIX systems (Linux/macOS)
+if(UNIX AND NOT APPLE)
+    target_link_libraries(${PROJECT_NAME} m)
+endif()
 
 target_link_libraries(Tetris raylib)

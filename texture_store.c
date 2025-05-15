@@ -1,4 +1,5 @@
 #include "texture_store.h"
+#include "board.h"
 
 /* --- Load raw bytes of texture BMPs --- */
 
@@ -17,7 +18,7 @@ texture_store texture_store_default() {
 	Image img = LoadImageFromMemory(".bmp", tetris_base, ARRAYSIZE(tetris_base));
 	Image filled_img = LoadImageFromMemory(".bmp", tetris_filled_base, ARRAYSIZE(tetris_filled_base));
 	texture_store ts = texture_store_new(img, filled_img);
-	texture_store_apply_pallet(&ts, 0xFF521A, 0x5500BD);
+	texture_store_apply_pallet(&ts, COLOUR_PALLETS[0][0], COLOUR_PALLETS[0][1]);
 	return ts;
 }
 

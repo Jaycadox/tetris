@@ -13,10 +13,10 @@
 // format: {primary, secondary}, in 8bit rgb
 static uint32_t COLOUR_PALLETS[][2] = {
 	{0xFF521A, 0x5500BD},
-	{0xFAF054, 0x00FEFC},
-	{0x61170A, 0xCCFF98},
-	{0x9E0085, 0xFFDC63},
-	{0x6FFFB8, 0x005C8F},
+	{0x561D25, 0xCE8147},
+	{0xE3170A, 0xF7B32B},
+	{0x23C9FF, 0xC884A6},
+	{0xC884A6, 0x9CE37D}, //
 };
 
 // Structure representing line streak effects when player does action to gain score
