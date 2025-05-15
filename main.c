@@ -49,7 +49,7 @@ int main (void) {
 		// If we notice a change in our level
 		if (old_level != b.level) {
 			// Update the game pallet to correspond with the new level
-			uint8_t pallet_idx = b.level % ARRAYSIZE(COLOUR_PALLETS);
+			uint8_t pallet_idx = b.level % COLOUR_PALLETS_COUNT;
 			texture_store_apply_pallet(&ts, COLOUR_PALLETS[pallet_idx][0], COLOUR_PALLETS[pallet_idx][1]);	
 		}
 		old_level = b.level;

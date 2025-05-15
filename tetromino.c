@@ -59,3 +59,162 @@ bool tetromino_collision_test(struct tetromino* tet, struct board* b, int8_t x_o
 	}
 	return false;
 }
+
+struct tetromino_shape STRAIGHT_SHAPE = {
+	.shapes = {
+		0b0000 +
+		(0b0000 << 4) +
+		(0b1111 << 8) +
+		(0b0000 << 12),
+
+		0b0010 +
+		(0b0010 << 4) +
+		(0b0010 << 8) +
+		(0b0010 << 12),
+	},
+	.num_shapes = 2,
+	.filled = true,
+	.secondary = false,
+	.x_spawn = -1,
+	.y_spawn = -2,
+};
+
+
+struct tetromino_shape T_SHAPE = {
+	.shapes = {
+		 0b0000 +
+		(0b1110 << 4) +
+		(0b0100 << 8) +
+		(0b0000 << 12),
+
+		 0b0100 +
+		(0b1100 << 4) +
+		(0b0100 << 8) +
+		(0b0000 << 12),
+
+		 0b0100 +
+		(0b1110 << 4) +
+		(0b0000 << 8) +
+		(0b0000 << 12),
+
+		 0b0100 +
+		(0b0110 << 4) +
+		(0b0100 << 8) +
+		(0b0000 << 12),
+	},
+	.num_shapes = 4,
+	.filled = true,
+	.secondary = false,
+	.x_spawn = -2,
+	.y_spawn = -1,
+};
+
+struct tetromino_shape S_SHAPE = {
+	.shapes = {
+		 0b1100 +
+		(0b0110 << 4) +
+		(0b0000 << 8) +
+		(0b0000 << 12),
+
+		 0b0100 +
+		(0b1100 << 4) +
+		(0b1000 << 8) +
+		(0b0000 << 12),
+	},
+	.num_shapes = 2,
+	.filled = false,
+	.secondary = true,
+	.x_spawn = -2,
+	.y_spawn = 0,
+};
+
+struct tetromino_shape Z_SHAPE = {
+	.shapes = {
+		 0b0110 +
+		(0b1100 << 4) +
+		(0b0000 << 8) +
+		(0b0000 << 12),
+
+		 0b1000 +
+		(0b1100 << 4) +
+		(0b0100 << 8) +
+		(0b0000 << 12),
+	},
+	.num_shapes = 2,
+	.filled = false,
+	.secondary = false,
+	.x_spawn = -2,
+	.y_spawn = 0,
+};
+
+struct tetromino_shape L_SHAPE = {
+	.shapes = {
+		 0b0000 +
+		(0b1110 << 4) +
+		(0b1000 << 8) +
+		(0b0000 << 12),
+
+		 0b0100 +
+		(0b0100 << 4) +
+		(0b0110 << 8) +
+		(0b0000 << 12),
+
+		 0b0010 +
+		(0b1110 << 4) +
+		(0b0000 << 8) +
+		(0b0000 << 12),
+
+		 0b1100 +
+		(0b0100 << 4) +
+		(0b0100 << 8) +
+		(0b0000 << 12),
+	},
+	.num_shapes = 4,
+	.filled = false,
+	.secondary = false,
+	.x_spawn = -2,
+	.y_spawn = -1,
+};
+
+struct tetromino_shape J_SHAPE = {
+	.shapes = {
+		 0b0000 +
+		(0b1110 << 4) +
+		(0b0010 << 8) +
+		(0b0000 << 12),
+
+		 0b0110 +
+		(0b0100 << 4) +
+		(0b0100 << 8) +
+		(0b0000 << 12),
+
+		 0b1000 +
+		(0b1110 << 4) +
+		(0b0000 << 8) +
+		(0b0000 << 12),
+
+		 0b0100 +
+		(0b0100 << 4) +
+		(0b1100 << 8) +
+		(0b0000 << 12),
+	},
+	.num_shapes = 4,
+	.filled = false,
+	.secondary = true,
+	.x_spawn = -2,
+	.y_spawn = -1,
+};
+
+struct tetromino_shape SQUARE_SHAPE = {
+	.shapes = {
+		 0b1100 +
+		(0b1100 << 4) +
+		(0b0000 << 8) +
+		(0b0000 << 12),
+	},
+	.num_shapes = 1,
+	.filled = true,
+	.secondary = false,
+	.x_spawn = -2,
+	.y_spawn = 0,
+};

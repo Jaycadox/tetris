@@ -1,6 +1,17 @@
 #include "board.h"
 #include <string.h>
 
+// Games (wrapping) colour pallet depending on level
+// format: {primary, secondary}, in 8bit rgb
+uint32_t COLOUR_PALLETS[][2] = {
+	{0xFF521A, 0x5500BD},
+	{0x561D25, 0xCE8147},
+	{0xE3170A, 0xF7B32B},
+	{0x23C9FF, 0xC884A6},
+	{0xC884A6, 0x9CE37D}, //
+};
+const size_t COLOUR_PALLETS_COUNT = sizeof(COLOUR_PALLETS) / sizeof(COLOUR_PALLETS[0]);
+
 void board_engrave_tetromino(struct board* b, struct tetromino* tet) {
 	// Get current shape (given rotation)
 	const uint16_t shape = tet->shape->shapes[tet->shape_idx];
