@@ -1,6 +1,7 @@
 #pragma once
 #include <stdio.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "tetromino.h"
 #include "texture_store.h"
 
@@ -28,7 +29,7 @@ struct score_emitter {
 	uint8_t height;
 };
 
-struct tetronimo_shape;
+struct tetromino_shape;
 struct board {
 	// Whether tiles are present, filled (texture), or coloured (texture) are represented in an array of 16 bit numbers
 	// Each number represents a specific row (rows are 10 long)
@@ -40,7 +41,7 @@ struct board {
 	uint32_t score;
 	uint32_t level;
 	uint32_t lines;
-	struct tetronimo_shape* next_shape;
+	struct tetromino_shape* next_shape;
 	struct score_emitter emitters[MAX_SCORE_EMITTERS];
 };
 
@@ -53,7 +54,7 @@ void board_draw(struct board* b, texture_store* store);
 
 // Resets (and rolls new next_shape) tetromino while respecting shape offsets
 // Further, it checks if the initial spawn of the tetromino is colliding, if so, it resets the game
-void board_reset_tetromino(struct board* b, struct tetromino* t);
+void board_reset_tetromino(struct board* b, struct tetromino* t, bool force_reset);
 
 // RETURNS: number of seconds between fall movements
 // Depends on the level

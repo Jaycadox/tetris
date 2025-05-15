@@ -58,7 +58,7 @@ void board_draw(struct board* b, texture_store* store) {
 #define ARRAYSIZE(x) sizeof(x) / sizeof(x[0])
 
 //#define STRAIGHT_ONLY
-void board_reset_tetromino(struct board* b, struct tetromino* t) {
+void board_reset_tetromino(struct board* b, struct tetromino* t, bool force_reset) {
 #ifdef STRAIGHT_ONLY
 	struct tetromino_shape* shapes[] = { &STRAIGHT_SHAPE };
 #else
@@ -79,7 +79,7 @@ void board_reset_tetromino(struct board* b, struct tetromino* t) {
 	t->y = 0 + t->shape->y_spawn;	
 
 
-	if (tetromino_collision_test(t, b, 0, 0, 0)) {
+	if (tetromino_collision_test(t, b, 0, 0, 0) || force_reset) {
 		// Game lost
 		*b = (struct board) {0};
 		b->next_shape = shapes[GetRandomValue(0, ARRAYSIZE(shapes) - 1)];

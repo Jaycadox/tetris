@@ -2,6 +2,7 @@ zig-cache/
 *.gch
 *.pch
 build/
+build_win/
 .cache/
 *.out
 .zig-cache/
