@@ -1,4 +1,9 @@
 zig-cache/
+*.gch
+*.pch
+build/
+.cache/
+*.out
 .zig-cache/
 zig-out/
 tetris_highscore
