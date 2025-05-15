@@ -1,6 +1,15 @@
 # Tetris
 ## Build steps
-Zig is used as the build system, clone this repo, and then clone [raylib](https://github.com/raysan5/raylib) (make sure raylib folder is next to source files), then run:
+CMake/Make is used as the build system.
+## Make (Linux)
+Ensure you have proper dependencies installed (mesa, raylib, xorg, wayland?) etc...
 ```sh
-zig build --release=fast
+make
 ```
+## CMake (cross platform)
+```sh
+mkdir build
+cmake --build build
+```
+
+**Licensed under GPL-v3**
